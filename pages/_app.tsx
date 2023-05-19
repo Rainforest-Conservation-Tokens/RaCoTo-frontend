@@ -4,12 +4,14 @@ import type { AppProps } from "next/app";
 import {
   RainbowKitProvider,
   darkTheme,
+  midnightTheme,
   getDefaultWallets,
   connectorsForWallets,
 } from "@rainbow-me/rainbowkit";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import { mainnet, polygon, polygonMumbai } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
+import Navbar from "@/components/Navbar";
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [mainnet, polygon, polygonMumbai],
@@ -44,7 +46,8 @@ export default function App({ Component, pageProps }: AppProps) {
         appInfo={demoAppInfo}
         chains={chains}
         modalSize="compact"
-        theme={darkTheme()}
+        // theme={darkTheme()}
+        theme={midnightTheme()}
       >
         <Component {...pageProps} />
       </RainbowKitProvider>

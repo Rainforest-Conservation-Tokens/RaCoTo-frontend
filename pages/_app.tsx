@@ -1,5 +1,7 @@
 import "@/styles/globals.css";
 import "@rainbow-me/rainbowkit/styles.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import type { AppProps } from "next/app";
 import {
   RainbowKitProvider,
@@ -12,6 +14,7 @@ import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import { mainnet, polygon, polygonMumbai } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 import Navbar from "@/components/Navbar";
+import React from "react";
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [mainnet, polygon, polygonMumbai],
@@ -40,17 +43,38 @@ const wagmiConfig = createConfig({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
+  const [ready, setReady] = React.useState(false);
+  React.useEffect(() => {
+    setReady(true);
+  }, []);
   return (
-    <WagmiConfig config={wagmiConfig}>
-      <RainbowKitProvider
-        appInfo={demoAppInfo}
-        chains={chains}
-        modalSize="compact"
-        // theme={darkTheme()}
-        theme={midnightTheme()}
-      >
-        <Component {...pageProps} />
-      </RainbowKitProvider>
-    </WagmiConfig>
+    <div>
+      {ready ? (
+        <WagmiConfig config={wagmiConfig}>
+          <RainbowKitProvider
+            appInfo={demoAppInfo}
+            chains={chains}
+            modalSize="compact"
+            theme={midnightTheme()}
+          >
+            <ToastContainer
+              position="top-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"
+            />
+            <Component {...pageProps} />
+          </RainbowKitProvider>
+        </WagmiConfig>
+      ) : (
+        <h2>Loading</h2>
+      )}
+    </div>
   );
 }

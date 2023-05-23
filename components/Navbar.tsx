@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import Wrapper from "./Wrapper";
 
 const Navbar = () => {
@@ -11,7 +13,7 @@ const Navbar = () => {
       //   : setScroll(" -translate-y-10 duration-700");
       setScroll("top-0 bg-white text-black shadow-md transalate-y-0 ");
     } else {
-      setScroll("bg-transparent transalate-y-0");
+      setScroll("bg-transparent transalate-y-0 text-white");
     }
     setLastScrollY(window.scrollY);
   };
@@ -23,14 +25,25 @@ const Navbar = () => {
   }, [lastScrollY]);
   return (
     <nav
-      className={`w-full h-[50px] md:h-[80px] z-20 sticky transition-transform duration-700 text-white flex justify-between items-center ${show}`}
+      className={`w-full h-[50px] md:h-[80px] z-20 sticky transition-transform duration-700 flex justify-between items-center ${show}`}
     >
       <Wrapper className="h-[60px] flex justify-between items-center text-xl py-3 ">
-        <section>Img</section>
+        <Link href={"/"}>
+          <Image
+            src="/assets/logo.png"
+            alt="logo"
+            width="200"
+            height={200}
+            className="w-14 h-14"
+          />
+        </Link>
         <section>list list list list list list list</section>
-        <button className="bg-gradient-to-r from-[#4dbc5d] to-[#00a694] px-3 py-2 rounded-lg text-white">
+        <Link
+          href="/register"
+          className="bg-gradient-to-r from-[#4dbc5d] to-[#00a694] px-3 py-2 rounded-lg text-white"
+        >
           Register
-        </button>
+        </Link>
       </Wrapper>
     </nav>
   );

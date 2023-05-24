@@ -11,7 +11,7 @@ const Faq = () => {
     };
 
   return (
-    <div className="my-5 h-[80vh] mb-10">
+    <div className="my-5  mb-10 bg-[#d9e8e5] py-5 md:py-10 ">
       <Wrapper className="flex flex-col justify-center items-center h-full">
         <h2 className="font-proxima_bold text-xl  text-[#48bb78] mt-3 md:mt-6">
           LEARN MORE ABOUT RACOTO

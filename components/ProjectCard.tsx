@@ -1,16 +1,20 @@
 import React from "react";
 import Image from "next/image";
 
-const ProjectCard = () => {
+const ProjectCard = ({ img, title }: { img: string; title: string }) => {
   return (
-    <div className="rounded-xl w-[300px] aspect-video mx-5">
+    <div className="rounded-xl w-[400px] mx-5 relative">
       <Image
-        src={"/assets/rf-slider-3.jpg"}
+        src={img}
         width={500}
         height={500}
         alt=""
-        className="rounded-xl"
+        className="rounded-xl h-[250px] aspect-video object-cover"
       />
+      <h2 className="absolute bottom-3 left-2 text-white font-proxima text-xl z-20">
+        {title}
+      </h2>
+      <span className="w-full h-full absolute top-0 bg-black/[0.3] z-10 rounded-xl" />
     </div>
   );
 };

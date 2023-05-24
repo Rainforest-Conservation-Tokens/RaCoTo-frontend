@@ -1,5 +1,7 @@
 import React from "react";
 import Wrapper from "./Wrapper";
+import ProjectCard from "@/components/ProjectCard";
+import Slider from "@/components/Slider";
 
 const Projects = () => {
   return (
@@ -12,36 +14,15 @@ const Projects = () => {
           {" "}
           Explore our tech-verified projects
         </h1>
-        {/* <div className="grid grid-cols-3 gap-8 w-[85%] mx-auto my-16">
-          <Card
-            title="Login"
-            num="01"
-            link="/register"
-            img="/assets/Certificate.jpg"
-            desc={
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit, sit amet consectetur adipisicing elit.  Architecto, qui."
-            }
-          />
-          <Card
-            title="Login"
-            num="02"
-            link="/register"
-            img="/assets/CO2.png"
-            desc={
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit, sit amet consectetur adipisicing elit.  Architecto, qui."
-            }
-          />
-          <Card
-            title="Login"
-            num="03"
-            link="/register"
-            img="/assets/Certificate.jpg"
-            desc={
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit, sit amet consectetur adipisicing elit.  Architecto, qui."
-            }
-          />
-        </div> */}
       </Wrapper>
+      <Slider title={""} isProject={true}>
+        <ProjectCard img="/assets/rf-slider-1.jpg" title="Project 1" />
+        <ProjectCard img="/assets/rf-slider-2.jpg" title="Project 1" />
+        <ProjectCard img="/assets/rf-slider-3.jpg" title="Project 1" />
+        <ProjectCard img="/assets/rf-slider-4.jpg" title="Project 1" />
+        <ProjectCard img="/assets/rf-slider-5.jpg" title="Project 1" />
+        <ProjectCard img="/assets/rf-slider-3.jpg" title="Project 1" />
+      </Slider>
     </div>
   );
 };

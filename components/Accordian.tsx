@@ -30,7 +30,7 @@ export default function SimpleAccordion({
           aria-controls={`${id}-content`}
           id={`${id}-header`}
         >
-          <h1 className="font-recoleta_bold text-xl">{title}</h1>
+          <h1 className="font-recoleta_bold text-2xl">{title}</h1>
         </AccordionSummary>
         <AccordionDetails>
           <h2 className="font-proxima">{body}</h2>

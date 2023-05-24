@@ -4,10 +4,13 @@
   top: 50%;
   transform: translate(0, -50%);
 }
+.project {
+  width: 300%;
+  animation: 25s slide infinite linear;
+  top: 50%;
+  transform: translate(0, -50%);
+}
 
-/* .logo img {
-  width: 190px;
-} */
 @keyframes slide {
   from {
     left: 0;

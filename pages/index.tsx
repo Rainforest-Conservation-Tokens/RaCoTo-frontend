@@ -3,7 +3,6 @@ import Procedure from "@/components/Procedure";
 import Problem from "@/components/Problem";
 import Slider from "@/components/Slider";
 import Projects from "@/components/Projects";
-import ProjectCard from "@/components/ProjectCard";
 import Footer from "@/components/Footer";
 import Faq from "@/components/Faq";
 import Wrapper from "@/components/Wrapper";
@@ -41,7 +40,10 @@ export default function Home() {
       </div>
       <div className="mt-[89vh]">
         <Problem />
-        <Slider title={"TRUSTED BY LEADING BRANDS AROUND THE WORLD"}>
+        <Slider
+          title={"TRUSTED BY LEADING BRANDS AROUND THE WORLD"}
+          isProject={false}
+        >
           <img src="/assets/slider-logo-1.png" alt="" className="w-[190px]" />
           <img src="/assets/slider-logo-2.svg" alt="" className="w-[190px]" />
           <img src="/assets/slider-logo-3.svg" alt="" className="w-[190px]" />
@@ -52,14 +54,7 @@ export default function Home() {
         </Slider>
         <Procedure />
         <Projects />
-        <Slider title={""}>
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-        </Slider>
+
         <Faq />
         <Footer />
       </div>

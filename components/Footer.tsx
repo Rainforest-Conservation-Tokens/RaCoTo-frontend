@@ -4,7 +4,7 @@ import { BsTwitter, BsLinkedin, BsMedium } from "react-icons/bs";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-[#d9e8e5]">
+    <footer className="w-full">
       <Wrapper className="">
         <span className="flex justify-between h-20 items-center text-black/[0.5]">
           Copyright © 2023 RaCoTo, Inc.

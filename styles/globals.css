@@ -5,8 +5,28 @@
   src: url("/fonts/Proxima.otf");
 }
 @font-face {
+  font-family: "Proxima-Bold";
+  src: url("/fonts/ProximaNovaA-Bold.ttf");
+}
+@font-face {
+  font-family: "Proxima-SemiBold";
+  src: url("/fonts/ProximaNovaA-SemiBold.ttf");
+}
+@font-face {
   font-family: "Recoleta";
   src: url("/fonts/Recoleta.otf");
+}
+@font-face {
+  font-family: "Recoleta-Bold";
+  src: url("/fonts/Recoleta-Bold.ttf");
+}
+@font-face {
+  font-family: "Recoleta-Black";
+  src: url("/fonts/Recoleta-Black.ttf");
+}
+@font-face {
+  font-family: "Recoleta-SemiBold";
+  src: url("/fonts/Recoleta-SemiBold.ttf");
 }
 @tailwind base;
 @tailwind components;
@@ -26,22 +46,6 @@
   border: 1px solid #949494;
   border-right-width: 0;
 }
-
-/* ::-webkit-scrollbar {
-  width: 2px;
-}
-::-webkit-scrollbar-track {
-  -webkit-box-shadow: none;
-}
-::-webkit-scrollbar-thumb {
-  background: rgb(236, 5, 5);
-  width: 20px;
-  -webkit-box-shadow: none;
-}
-
-::-webkit-scrollbar-thumb:window-inactive {
-  background: none;
-} */
 
 body {
   scroll-behavior: smooth;

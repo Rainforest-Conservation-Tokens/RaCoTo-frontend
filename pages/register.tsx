@@ -13,7 +13,6 @@ import { toast } from "react-toastify";
 const Register = () => {
   const { address } = useAccount();
   const captchaRef = useRef<HTMLInputElement>(null);
-  const walletRef = useRef(null);
   const avatarRef = useRef<HTMLInputElement>(null);
   const certificateRef = useRef<HTMLInputElement>(null);
   const [landImage, setLandImage] = useState<string>();
@@ -113,15 +112,10 @@ const Register = () => {
             />
           </Link>
 
-          <button
-            className="bg-gradient-to-r from-[#4dbc5d] to-[#00a694] px-3 py-2 rounded-lg text-white"
-            onClick={() => {
-              walletRef.current.click();
-            }}
-          >
+          <button className="bg-gradient-to-r from-[#4dbc5d] to-[#00a694] px-3 py-2 rounded-lg text-white">
             Connect Wallet
           </button>
-          <section className="font-proxima text-base">
+          {/* <section className="font-proxima text-base">
             <ConnectButton
               chainStatus="icon"
               accountStatus={{
@@ -133,7 +127,7 @@ const Register = () => {
                 largeScreen: true,
               }}
             />
-          </section>
+          </section> */}
         </Wrapper>
       </nav>
       <Wrapper className="">
@@ -254,6 +248,15 @@ const Register = () => {
                 sitekey={process.env.NEXT_PUBLIC_SITE_KEY}
                 ref={captchaRef}
               />
+              <div className="flex my-5">
+                <input
+                  type="checkbox"
+                  name="terms"
+                  className="rounded-lg  mr-2 outline-none text-lg"
+                  onChange={handleOnChange}
+                />
+                <h2>I agree that this land is not under any other scheme</h2>
+              </div>
 
               <button
                 type="submit"

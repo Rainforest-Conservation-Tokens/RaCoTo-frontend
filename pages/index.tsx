@@ -1,4 +1,11 @@
 import Navbar from "@/components/Navbar";
+import Procedure from "@/components/Procedure";
+import Problem from "@/components/Problem";
+import Slider from "@/components/Slider";
+import Projects from "@/components/Projects";
+import ProjectCard from "@/components/ProjectCard";
+import Footer from "@/components/Footer";
+import Faq from "@/components/Faq";
 import Wrapper from "@/components/Wrapper";
 
 export default function Home() {
@@ -16,7 +23,7 @@ export default function Home() {
           muted
           className="w-full h-full object-cover -z-20 absolute top-0"
         />
-        <h2 className="text-7xl text-white font-recoleta z-10 mt-[50px] md:mt-[80px]  font-extrabold text-center">
+        <h2 className="text-7xl text-white font-recoleta_bold z-10 mt-[50px] md:mt-[80px] text-center">
           Remove Carbon. Restore Nature.
         </h2>
         <span className="text-3xl text-white font-proxima z-10 font-bold my-5 w-[70%] mx-auto text-center ">
@@ -32,33 +39,30 @@ export default function Home() {
           </button>
         </section>
       </div>
-      <Wrapper className="mt-[89vh]">
-        <h2>Heloooo</h2>
-        <h2>Heloooo</h2>
-        <h2>Heloooo</h2>
-        <h2>Heloooo</h2>
-        <h2>Heloooo</h2>
-        <h2>Heloooo</h2>
-        <h2>Heloooo</h2>
-        <h2>Heloooo</h2>
-        <h2>Heloooo</h2>
-        <h2>Heloooo</h2>
-        <h2>Heloooo</h2>
-        <h2>Heloooo</h2>
-        <h2>Heloooo</h2>
-        <h2>Heloooo</h2>
-        <h2>Heloooo</h2>
-        <h2>Heloooo</h2>
-        <h2>Heloooo</h2>
-        <h2>Heloooo</h2>
-        <h2>Heloooo</h2>
-        <h2>Heloooo</h2>
-        <h2>Heloooo</h2>
-        <h2>Heloooo</h2>
-        <h2>Heloooo</h2>
-        <h2>Heloooo</h2>
-        <h2>Heloooo</h2>
-      </Wrapper>
+      <div className="mt-[89vh]">
+        <Problem />
+        <Slider title={"TRUSTED BY LEADING BRANDS AROUND THE WORLD"}>
+          <img src="/assets/slider-logo-1.png" alt="" className="w-[190px]" />
+          <img src="/assets/slider-logo-2.svg" alt="" className="w-[190px]" />
+          <img src="/assets/slider-logo-3.svg" alt="" className="w-[190px]" />
+          <img src="/assets/slider-logo-4.svg" alt="" className="w-[190px]" />
+          <img src="/assets/slider-logo-5.svg" alt="" className="w-[190px]" />
+          <img src="/assets/slider-logo-6.svg" alt="" className="w-[190px]" />
+          <img src="/assets/slider-logo-7.svg" alt="" className="w-[190px]" />
+        </Slider>
+        <Procedure />
+        <Projects />
+        <Slider title={""}>
+          <ProjectCard />
+          <ProjectCard />
+          <ProjectCard />
+          <ProjectCard />
+          <ProjectCard />
+          <ProjectCard />
+        </Slider>
+        <Faq />
+        <Footer />
+      </div>
     </main>
   );
 }

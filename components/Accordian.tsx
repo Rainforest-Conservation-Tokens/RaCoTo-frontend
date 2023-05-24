@@ -22,7 +22,7 @@ export default function SimpleAccordion({
   ) => (event: React.SyntheticEvent, isExpanded: boolean) => void;
 }) {
   return (
-    <div className="my-2 duration-300 transition">
+    <div className="my-2 duration-300 transition w-[80%] mx-auto">
       {/* <Wrapper> */}
       <Accordion expanded={expanded === id} onChange={handleChange(id)}>
         <AccordionSummary
@@ -33,7 +33,7 @@ export default function SimpleAccordion({
           <h1 className="font-recoleta_bold text-2xl">{title}</h1>
         </AccordionSummary>
         <AccordionDetails>
-          <h2 className="font-proxima">{body}</h2>
+          <h2 className="font-proxima text-xl">{body}</h2>
         </AccordionDetails>
       </Accordion>
       {/* </Wrapper> */}

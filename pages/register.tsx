@@ -12,7 +12,7 @@ import { toast } from "react-toastify";
 
 const Register = () => {
   const { address } = useAccount();
-  const captchaRef = useRef<HTMLInputElement>(null);
+  const captchaRef = useRef(null);
   const avatarRef = useRef<HTMLInputElement>(null);
   const certificateRef = useRef<HTMLInputElement>(null);
   const [landImage, setLandImage] = useState<string>();
@@ -245,9 +245,10 @@ const Register = () => {
 
               <RECAPTCHA
                 className="my-7"
-                sitekey={process.env.NEXT_PUBLIC_SITE_KEY}
+                sitekey={process.env.NEXT_PUBLIC_SITE_KEY!}
                 ref={captchaRef}
               />
+
               <div className="flex my-5">
                 <input
                   type="checkbox"

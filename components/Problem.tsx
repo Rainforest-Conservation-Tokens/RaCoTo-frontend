@@ -15,13 +15,17 @@ const Problem = () => {
         <div className="flex gap-3 items-stretch w-[75%] mx-auto my-16 ">
           <Card
             img=""
+            num=""
+            link=""
             title="The Problem"
             desc={
               "The current Voluntary carbon market (VCM) is hard to access both for individuals and businesses. It lacks transparency, traceability and contains many low-quality carbon compensation projects."
             }
           />
           <Card
+            num=""
             img=""
+            link=""
             title="The Solution"
             desc={
               "Carbon compensation with Coorest is easy, fast and transparent because we utilise blockchain technology. Everyone can compensate for their CO2 footprint instantly, from anywhere in the world, leaving a immutable and ​​traceable record."

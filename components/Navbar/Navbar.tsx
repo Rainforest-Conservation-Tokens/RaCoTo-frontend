@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Wrapper from "./Wrapper";
+import Wrapper from "../Wrapper";
 
 const Navbar = () => {
   const [show, setScroll] = useState("");

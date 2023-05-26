@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/Navbar/Navbar";
 import Procedure from "@/components/Procedure";
 import Problem from "@/components/Problem";
 import Slider from "@/components/Slider";
@@ -9,7 +9,7 @@ import Wrapper from "@/components/Wrapper";
 
 export default function Home() {
   return (
-    <main className="realtive">
+    <main className="realtive w-full">
       <Navbar />
       <div className="w-full h-[97vh] absolute top-0 flex flex-col justify-center items-center">
         <section className=" h-full w-full absolute top-0 bg-black/[0.6] -z-10" />

@@ -13,7 +13,6 @@ import {
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import { mainnet, polygon, polygonMumbai } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
-import Navbar from "@/components/Navbar";
 import React from "react";
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(

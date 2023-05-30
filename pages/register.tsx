@@ -10,6 +10,7 @@ import { TbFileUpload } from "react-icons/tb";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { ConnectWallet } from "@/components/Button/ConnectWallet";
+import { useRouter } from "next/router";
 
 type ContentProps = {
   username: string;
@@ -21,6 +22,7 @@ type ContentProps = {
 const Register = () => {
   const { address } = useAccount();
   const captchaRef = useRef(null);
+  const router = useRouter();
   const avatarRef = useRef<HTMLInputElement>(null);
   const [isWhiteListed, setIsWhiteListed] = useState<boolean>(false);
   const certificateRef = useRef<HTMLInputElement>(null);
@@ -111,6 +113,12 @@ const Register = () => {
         console.log(res);
         if (res.data.status === "SUCCESS" && res.data.isValid) {
           setIsWhiteListed(true);
+        } else if (res.data.status === "SUCCESS" && !res.data.isValid) {
+          setIsWhiteListed(false);
+          toast("Not approved yet!", {
+            icon: "⚠️",
+          });
+          router.replace("/waitlist");
         }
       })
       .catch((err) => {

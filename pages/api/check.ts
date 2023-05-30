@@ -19,9 +19,7 @@ export default function check(req: NextApiRequest, res: NextApiResponse<Data>) {
     });
     return;
   }
-  console.log(req.body);
-  console.log(req.body.address);
-  //   console.log(req.body);
+
   const address = req.body.address;
   if (!address) {
     res.status(400).send({

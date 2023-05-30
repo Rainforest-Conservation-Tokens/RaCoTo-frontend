@@ -1,6 +1,5 @@
-import React, { ChangeEvent, useRef, useState } from "react";
+import { ChangeEvent, useRef, useState } from "react";
 import Image from "next/image";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Link from "next/link";
 import Wrapper from "@/components/Wrapper";
 import RECAPTCHA from "react-google-recaptcha";
@@ -8,26 +7,32 @@ import { useAccount } from "wagmi";
 import { BsFileEarmarkPdf } from "react-icons/bs";
 import { BsUpload } from "react-icons/bs";
 import { TbFileUpload } from "react-icons/tb";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
+import axios from "axios";
+import { ConnectWallet } from "@/components/Button/ConnectWallet";
+
+type ContentProps = {
+  username: string;
+  wallet_address: `0x${string}` | undefined;
+  land_image: File | null;
+  certificate: File | null;
+};
 
 const Register = () => {
   const { address } = useAccount();
   const captchaRef = useRef(null);
   const avatarRef = useRef<HTMLInputElement>(null);
+  const [isWhiteListed, setIsWhiteListed] = useState<boolean>(false);
   const certificateRef = useRef<HTMLInputElement>(null);
   const [landImage, setLandImage] = useState<string>();
   const [certificateFile, setCertificateFile] = useState<File | null>(null);
-  const [content, setContent] = useState<{
-    username: string;
-    wallet_address: `0x${string}` | undefined;
-    land_image: File | null;
-    certificate: File | null;
-  }>({
+  const [content, setContent] = useState<ContentProps>({
     username: "",
     wallet_address: address,
     land_image: null,
     certificate: null,
   });
+  const { isConnected } = useAccount();
 
   const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
     const name = event.target.name;
@@ -98,6 +103,24 @@ const Register = () => {
   //     captchaRef.current.reset();
   //     console.log(token);
   //   };
+
+  const checkValid = () => {
+    axios
+      .post("/api/check", { address })
+      .then((res) => {
+        console.log(res);
+        if (res.data.status === "SUCCESS" && res.data.isValid) {
+          setIsWhiteListed(true);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  if (isConnected) {
+    checkValid();
+  }
+
   return (
     <div className="w-full h-screen overflow-y-scroll bg-[#F5F5F5] font-recoleta">
       <nav className="w-full h-[50px] md:h-[80px] bg-white flex justify-between items-center">
@@ -111,23 +134,7 @@ const Register = () => {
               className="w-14 h-14"
             />
           </Link>
-
-          <button className="bg-gradient-to-r from-[#4dbc5d] to-[#00a694] px-3 py-2 rounded-lg text-white">
-            Connect Wallet
-          </button>
-          {/* <section className="font-proxima text-base">
-            <ConnectButton
-              chainStatus="icon"
-              accountStatus={{
-                smallScreen: "avatar",
-                largeScreen: "full",
-              }}
-              showBalance={{
-                smallScreen: false,
-                largeScreen: true,
-              }}
-            />
-          </section> */}
+          <ConnectWallet />
         </Wrapper>
       </nav>
       <Wrapper className="">

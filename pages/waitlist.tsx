@@ -5,16 +5,29 @@ import { useAccount } from "wagmi";
 import toast from "react-hot-toast";
 import { ConnectWallet } from "@/components/Button/ConnectWallet";
 import { useState } from "react";
+import axios from "axios";
 
 const Register = () => {
   const [addressValue, setAddressValue] = useState<`0x${string}` | string>("");
 
   const handleClick = () => {
-    if (!addressValue) {
+    if (
+      !addressValue ||
+      addressValue.length !== 42 ||
+      !addressValue.startsWith("0x")
+    ) {
       toast.error("Enter Valid Address");
     } else {
+      axios
+        .post("/api/add", { address: addressValue })
+        .then((res) => {
+          toast.success("Added to waitlist");
+        })
+        .catch((err) => {
+          toast.error(err.response.data.reason);
+          // toast.error(err);
+        });
       setAddressValue("");
-      toast.success("Added to waitlist");
     }
   };
 

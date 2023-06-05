@@ -34,7 +34,7 @@ export const ConnectWallet = () => {
                 return (
                   <button
                     onClick={openConnectModal}
-                    className="bg-gradient-to-r from-[#4dbc5d] to-[#00a694] px-3 py-2 rounded-lg text-white"
+                    className="bg-gradient-to-r from-[#4dbc5d] to-[#00a694] px-3 py-2 rounded-lg text-white hover:scale-95 transition duration-300"
                     type="button"
                   >
                     Connect Wallet
@@ -46,7 +46,7 @@ export const ConnectWallet = () => {
                   <button
                     onClick={openChainModal}
                     type="button"
-                    className="bg-[#f24343] px-3 py-2 rounded-lg text-white"
+                    className="bg-[#f24343] px-3 py-2 rounded-lg text-white hover:scale-95 transition duration-300"
                   >
                     Wrong network
                   </button>
@@ -85,7 +85,7 @@ export const ConnectWallet = () => {
                   <button
                     onClick={openAccountModal}
                     type="button"
-                    className="bg-gradient-to-r from-[#4dbc5d] to-[#00a694] px-3 py-2 rounded-lg text-white"
+                    className="bg-gradient-to-r from-[#4dbc5d] to-[#00a694] px-3 py-2 rounded-lg text-white hover:scale-95 transition duration-300"
                   >
                     {account.displayName}
                     {/* {account.displayBalance

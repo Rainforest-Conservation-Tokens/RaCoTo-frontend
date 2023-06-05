@@ -2,10 +2,15 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Wrapper from "../Wrapper";
+import LoginModal from "../modal/Login";
+import { useRouter } from "next/router";
+// import {IoLanguageOutline} from "react-icons/io";
 
 const Navbar = () => {
+  const { locale, locales } = useRouter();
   const [show, setScroll] = useState("");
   const [link, setLink] = useState("text-white");
+  const [open, setOpen] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const handleScroll = () => {
     if (window.scrollY > 150) {
@@ -51,13 +56,35 @@ const Navbar = () => {
             </select>
           </div>
         </div>
+
         <section>
-          <Link
-            href="/register"
-            className="border-[#00a694] hover:scale-95 mr-2 transition duration-300 border-2 px-3 py-2 rounded-lg "
+          {/* <IoLanguageOutline /> */}
+          <select
+            defaultValue={locale}
+            className="bg-transparent text-white after:text-black outline-none"
+            onChange={(e) => {}}
+          >
+            <option value="en" className="text-black p-2">
+              English
+            </option>
+            <option value="br" className="text-black p-2">
+              Indonesia
+            </option>
+            <option value="en" className="text-black p-2">
+              Japanese
+            </option>
+            <option value="en" className="text-black p-2">
+              Chinese
+            </option>
+          </select>
+
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            className="border-[#00a694] hover:scale-95 mr-2 transition duration-300 border-2 px-3 py-1 rounded-lg "
           >
             Login
-          </Link>
+          </button>
           <Link
             href="/register"
             className="bg-gradient-to-r from-[#4dbc5d] to-[#00a694] hover:scale-95 transition duration-300 px-3 py-2 rounded-lg text-white"
@@ -66,6 +93,7 @@ const Navbar = () => {
           </Link>
         </section>
       </Wrapper>
+      {open && <LoginModal setOpen={setOpen} />}
     </nav>
   );
 };

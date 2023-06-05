@@ -6,8 +6,22 @@ import Projects from "@/components/Projects";
 import Footer from "@/components/Footer";
 import Faq from "@/components/Faq";
 import Wrapper from "@/components/Wrapper";
+import { useRouter } from "next/router";
+import EN from "@/constants/en";
+import BR from "@/constants/br";
 
 export default function Home() {
+  const { locale } = useRouter();
+
+  const getTranslation = (locale: string) => {
+    switch (locale) {
+      case "br":
+        return BR;
+      default:
+        return EN;
+    }
+  };
+  const t = getTranslation(locale as string);
   return (
     <main className="realtive w-full">
       <Navbar />
@@ -25,17 +39,18 @@ export default function Home() {
         <h2 className="text-7xl text-white font-recoleta_bold z-10 mt-[50px] md:mt-[80px] text-center">
           Remove Carbon. Restore Nature.
         </h2>
-        <span className="text-3xl text-white font-proxima z-10 font-bold my-5 w-[70%] mx-auto text-center ">
+        <section className="text-3xl text-white font-proxima z-10 font-bold my-5 w-[70%] mx-auto text-center ">
+          {t.hello}
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
           obcaecati, explicabo. Explicabo, quod similique.
-        </span>
+        </section>
         <section className="flex justify-center my-5">
           <button className="px-5 py-3 transition duration-300 hover:scale-95 bg-white rounded-lg z-10 mx-4 font-proxima text-xl font-bold hover:text-white hover:bg-transparent hover:border-2  hover:border-white ">
-            Learn More
+            Book a free consultation
           </button>
-          <button className="px-5 py-3 transition duration-300 hover:scale-95 border-white border-2 text-white rounded-lg z-10 font-proxima text-xl font-bold hover:bg-white hover:text-black ">
+          {/* <button className="px-5 py-3 transition duration-300 hover:scale-95 border-white border-2 text-white rounded-lg z-10 font-proxima text-xl font-bold hover:bg-white hover:text-black ">
             Contact Us
-          </button>
+          </button> */}
         </section>
       </div>
       <div className="mt-[89vh]">

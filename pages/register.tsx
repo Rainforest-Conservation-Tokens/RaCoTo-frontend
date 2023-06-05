@@ -20,11 +20,11 @@ type ContentProps = {
 };
 
 const Register = () => {
-  const { address } = useAccount();
+  const { address, isConnected } = useAccount();
   const captchaRef = useRef(null);
-  const router = useRouter();
   const avatarRef = useRef<HTMLInputElement>(null);
   const [isWhiteListed, setIsWhiteListed] = useState<boolean>(false);
+  const router = useRouter();
   const certificateRef = useRef<HTMLInputElement>(null);
   const [landImage, setLandImage] = useState<string>();
   const [certificateFile, setCertificateFile] = useState<File | null>(null);
@@ -34,7 +34,6 @@ const Register = () => {
     land_image: null,
     certificate: null,
   });
-  const { isConnected } = useAccount();
 
   const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
     const name = event.target.name;

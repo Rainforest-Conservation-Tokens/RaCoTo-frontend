@@ -44,17 +44,6 @@ export default function check(req: NextApiRequest, res: NextApiResponse<Data>) {
     .collection("whitelist")
     .findOne({ address: address })
     .then((data) => {
-      // if (data) {
-      //   res.status(200).send({
-      //     status: "SUCCESS",
-      //     isValid: true,
-      //   });
-      // } else {
-      //   res.status(200).send({
-      //     status: "SUCCESS",
-      //     isValid: false,
-      //   });
-      // }
       if (data) {
         return res.status(400).send({
           status: "ERROR",
@@ -64,12 +53,12 @@ export default function check(req: NextApiRequest, res: NextApiResponse<Data>) {
         mongoose.connection
           .collection("whitelist")
           .insertOne({ address: address })
-          .then((data) => {
+          .then(() => {
             return res.status(200).send({
               status: "SUCCESS",
             });
           })
-          .catch((err) => {
+          .catch(() => {
             return res.status(500).send({
               status: "ERROR",
               reason: "Server error",
@@ -77,7 +66,7 @@ export default function check(req: NextApiRequest, res: NextApiResponse<Data>) {
           });
       }
     })
-    .catch((err) => {
+    .catch(() => {
       return res.status(500).send({
         status: "ERROR",
         reason: "Server error",

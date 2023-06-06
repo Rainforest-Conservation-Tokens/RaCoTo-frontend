@@ -23,7 +23,7 @@ const AdminIndex = () => {
       [e.target.id]: e.target.value,
     }));
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     if (data.walletAddress === "" || data.password === "") {
       toast.error("Please fill all the fields");

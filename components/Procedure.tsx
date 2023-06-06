@@ -1,6 +1,6 @@
 import React from "react";
 import Wrapper from "./Wrapper";
-import Card from "./Card";
+import Card from "./Cards/Card";
 
 const Procedure = () => {
   return (

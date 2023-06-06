@@ -11,7 +11,7 @@ const ProjectCard = ({ img, title }: { img: string; title: string }) => {
         alt=""
         className="rounded-xl h-[250px] aspect-video object-cover"
       />
-      <h2 className="absolute bottom-3 left-2 text-white font-proxima text-xl z-20">
+      <h2 className="absolute bottom-3 left-3 text-white font-proxima text-xl z-20">
         {title}
       </h2>
       <span className="w-full h-full absolute top-0 bg-black/[0.3] z-10 rounded-xl" />

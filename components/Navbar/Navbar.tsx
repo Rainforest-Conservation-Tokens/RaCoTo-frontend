@@ -4,10 +4,11 @@ import Link from "next/link";
 import Wrapper from "../Wrapper";
 import LoginModal from "../modal/Login";
 import { useRouter } from "next/router";
-// import {IoLanguageOutline} from "react-icons/io";
-
-const Navbar = () => {
-  const { locale, locales } = useRouter();
+import LanguageDropdown from "../lists/LanguageDropdown";
+type NavbarProps = {
+  className?: string;
+};
+const Navbar = ({ className }: NavbarProps) => {
   const [show, setScroll] = useState("");
   const [link, setLink] = useState("text-white");
   const [open, setOpen] = useState(false);
@@ -32,7 +33,7 @@ const Navbar = () => {
   }, [lastScrollY]);
   return (
     <nav
-      className={`w-full h-[50px] md:h-[80px] z-20 sticky transition-transform duration-700 flex justify-between items-center ${link}  ${show}`}
+      className={`w-screen h-[50px] md:h-[80px] z-20 sticky transition-transform duration-700 flex justify-between items-center ${link}  ${show} ${className}`}
     >
       <Wrapper className="h-[60px] flex justify-between items-center text-xl py-3 ">
         <Link href={"/"}>
@@ -45,39 +46,21 @@ const Navbar = () => {
           />
         </Link>
         <div className="flex justify-between basis-1/2">
-          <h2>Whitepaper</h2>
           <h2>Explore</h2>
           <h2>Market</h2>
           <h2>FaQ</h2>
           <div>
-            <select className="bg-transparent outline-none">
+            <select
+              className="bg-transparent outline-none"
+              defaultValue={"Documents"}
+            >
               <option className="text-black px-2">Documents</option>
               <option className="text-black p-2">WhitePaper</option>
             </select>
           </div>
         </div>
-
-        <section>
-          {/* <IoLanguageOutline /> */}
-          <select
-            defaultValue={locale}
-            className="bg-transparent text-white after:text-black outline-none"
-            onChange={(e) => {}}
-          >
-            <option value="en" className="text-black p-2">
-              English
-            </option>
-            <option value="br" className="text-black p-2">
-              Indonesia
-            </option>
-            <option value="en" className="text-black p-2">
-              Japanese
-            </option>
-            <option value="en" className="text-black p-2">
-              Chinese
-            </option>
-          </select>
-
+        <section className="flex">
+          <LanguageDropdown />
           <button
             type="button"
             onClick={() => setOpen(true)}

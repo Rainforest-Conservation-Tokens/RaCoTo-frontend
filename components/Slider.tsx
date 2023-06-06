@@ -13,7 +13,7 @@ const Slider = ({
   return (
     <div>
       {title && (
-        <h1 className="text-center font-proxima_bold text-xl text-[#48bb78] mt-7 md:mt-14">
+        <h1 className="text-center font-proxima_bold text-xl text-[#48bb78] mt-7 md:mt-14 lg:text-2xl">
           {title}
         </h1>
       )}

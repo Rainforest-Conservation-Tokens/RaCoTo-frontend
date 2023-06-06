@@ -9,7 +9,7 @@ const Wrapper = ({
 }) => {
   return (
     <div
-      className={`w-full max-w-[1280px] px-7 font-proxima mx-auto ${className}`}
+      className={`w-full max-w-[1380px] px-7 font-proxima mx-auto ${className}`}
     >
       {children}
     </div>

@@ -49,4 +49,6 @@ export default {
   home_faq_pre_title: "SAIBA MAIS SOBRE RACOTO",
   home_project_pre_title: "JUNTE-SE AO MOVIMENTO DE CARBONO ZERO",
   home_project_title: "Explore nossos projetos verificados pela tecnologia",
+  home_procedure_title: "Take action in 3 simple steps",
+  home_procedure_pre_title: "HOW IT WORKS",
 };

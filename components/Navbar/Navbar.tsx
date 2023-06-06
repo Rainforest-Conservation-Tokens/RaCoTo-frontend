@@ -22,6 +22,7 @@ const Navbar = ({ className }: NavbarProps) => {
       setLink("text-black");
     } else {
       setScroll("bg-transparent transalate-y-0 text-white");
+      setLink("text-white");
     }
     setLastScrollY(window.scrollY);
   };
@@ -60,7 +61,7 @@ const Navbar = ({ className }: NavbarProps) => {
           </div>
         </div>
         <section className="flex">
-          <LanguageDropdown />
+          <LanguageDropdown className={link} />
           <button
             type="button"
             onClick={() => setOpen(true)}

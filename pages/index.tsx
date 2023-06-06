@@ -75,7 +75,7 @@ export default function Home() {
   return (
     <main className="realtive w-full">
       <Navbar className="absolute top-0" />
-      <div className="w-screen h-[97vh] flex flex-col justify-center items-center">
+      <div className="w-screen h-[99vh] flex flex-col justify-center items-center">
         <section className=" h-full w-screen absolute top-0 bg-black/[0.6] -z-10" />
         <video
           src={
@@ -86,7 +86,7 @@ export default function Home() {
           muted
           className="w-screen h-full object-cover -z-20 absolute top-0"
         />
-        <h2 className="text-5xl md:text-7xl text-white font-recoleta_bold z-10 mt-[50px] md:mt-[80px] text-center">
+        <h2 className="text-5xl md:text-7xl text-white font-recoleta_bold z-10 mt-[30px] lg:mt-[50px] text-center">
           {t.hero_title}
         </h2>
         <section className="text-xl md:text-3xl text-white font-proxima z-10 font-bold my-5 w-[70%] mx-auto text-center ">

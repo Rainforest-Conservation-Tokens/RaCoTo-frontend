@@ -131,7 +131,10 @@ export default function Home() {
         ))}
       </Slider>
 
-      <Procedure />
+      <Procedure
+        title={t.home_procedure_title}
+        pre_title={t.home_procedure_pre_title}
+      />
       <Projects
         title={t.home_project_title}
         pre_title={t.home_project_pre_title}

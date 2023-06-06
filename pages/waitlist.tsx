@@ -6,8 +6,6 @@ import toast from "react-hot-toast";
 import { ConnectWallet } from "@/components/Button/ConnectWallet";
 import { useState } from "react";
 import axios from "axios";
-import { LuLanguages } from "react-icons/lu";
-import { AiOutlineCaretDown } from "react-icons/ai";
 import { useRouter } from "next/router";
 import EN from "@/constants/en";
 import BR from "@/constants/br";

@@ -35,7 +35,7 @@ export default function check(req: NextApiRequest, res: NextApiResponse<Data>) {
   if (mongoose.connection.readyState !== 1) {
     res.status(500).send({
       status: "ERROR",
-      reason: "Server error",
+      reason: "MongoDB connection error",
     });
     return;
   }

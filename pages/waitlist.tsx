@@ -11,7 +11,7 @@ import { AiOutlineCaretDown } from "react-icons/ai";
 import { useRouter } from "next/router";
 import EN from "@/constants/en";
 import BR from "@/constants/br";
-import LanguageDropdown from "@/components/LanguageDropdown";
+import LanguageDropdown from "@/components/lists/LanguageDropdown";
 
 const Register = () => {
   const { address } = useAccount();

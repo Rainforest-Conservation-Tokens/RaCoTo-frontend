@@ -48,4 +48,6 @@ export default {
   home_faq_pre_title: "LEARN MORE ABOUT RACOTO",
   home_project_pre_title: "JOIN THE NET ZERO MOVEMENT",
   home_project_title: "Explore our tech-verified projects",
+  home_procedure_title: "Take action in 3 simple steps",
+  home_procedure_pre_title: "HOW IT WORKS",
 };

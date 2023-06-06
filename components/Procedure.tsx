@@ -1,19 +1,19 @@
 import React from "react";
 import Wrapper from "./Wrapper";
 import Card from "./Cards/Card";
-
-const Procedure = () => {
+type ProcedureProps = {
+  title: string;
+  pre_title: string;
+};
+const Procedure = ({ title, pre_title }: ProcedureProps) => {
   return (
     <div className="relative my-5 bg-[url('/assets/bg-2.png')] object-contain w-[100vw] h-[85vh]">
       <div className="absolute top-0 w-[100vw] h-[85vh] bg-[#61ce701a]"></div>
       <Wrapper className="flex flex-col justify-center items-center h-full">
         <h2 className="font-proxima_bold text-xl text-[#48bb78] mt-5 md:mt-9">
-          HOW IT WORKS
+          {title}
         </h2>
-        <h1 className="font-recoleta_semibold text-5xl my-3 ">
-          {" "}
-          Take action in 3 simple steps
-        </h1>
+        <h1 className="font-recoleta_semibold text-5xl my-3 "> {pre_title}</h1>
         <div className="grid grid-cols-3 gap-8 w-[85%] mx-auto my-16">
           <Card
             title="Login"

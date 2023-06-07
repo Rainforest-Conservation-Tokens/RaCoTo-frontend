@@ -10,7 +10,7 @@ import { TbFileUpload } from "react-icons/tb";
 import toast from "react-hot-toast";
 import { ConnectWallet } from "@/components/Button/ConnectWallet";
 import useWeb3Storage from "@/hooks/useWeb3Storage";
-import { useRouter } from "next/router";
+import { Router, useRouter } from "next/router";
 import EN from "@/constants/en";
 import BR from "@/constants/br";
 import RacotoContract from "@/constants/abi.json";
@@ -33,6 +33,7 @@ type ContentProps = {
 const Register = () => {
   const { address } = useAccount();
   const captchaRef = useRef(null);
+  const router = useRouter();
   const { locale } = useRouter();
   const avatarRef = useRef<HTMLInputElement>(null);
   const ownershipCertificateRef = useRef<HTMLInputElement>(null);
@@ -170,6 +171,24 @@ const Register = () => {
       toast.error("Error connecting with contract");
     }
   };
+
+  const checkWhitlisted = async (address: `0x${string}`) => {
+    const data = await readContract({
+      address: RacotoContract.address as `0x${string}`,
+      abi: RacotoContract.abi,
+      functionName: "isUserWhitelisted",
+      args: [address],
+    });
+    if (data) {
+      toast.custom("You're already whitelisted", {
+        icon: "ℹ️",
+      });
+      router.push("/");
+    }
+  };
+  if (address) {
+    checkWhitlisted(address);
+  }
 
   return (
     <div className="w-full h-screen overflow-y-scroll bg-[#F5F5F5] font-recoleta">

@@ -21,7 +21,7 @@ const Procedure = ({ title, pre_title }: ProcedureProps) => {
             link="/register"
             img="/assets/Certificate.jpg"
             desc={
-              "Register an account on our Web3 Rainforest Conversation Carbon Offset website and become a part of the global movement dedicated to preserving our rainforests. "
+              "Join our platform, register an account, and be part of the global movement preserving rainforests and earning rewards."
             }
           />
           <Card
@@ -30,7 +30,7 @@ const Procedure = ({ title, pre_title }: ProcedureProps) => {
             link="/register"
             img="/assets/CO2.png"
             desc={
-              "By persistently maintaining the integrity of rainforest boundaries, you play a crucial role in preserving these natural treasures."
+              "Preserve rainforest treasures by maintaining boundaries, playing a crucial role in their integrity and long-term conservation."
             }
           />
           <Card
@@ -39,7 +39,7 @@ const Procedure = ({ title, pre_title }: ProcedureProps) => {
             link="/register"
             img="/assets/Certificate.jpg"
             desc={
-              "As you actively contribute to the protection of rainforest areas, you not only combat climate change but also have the chance to Earn financial rewards as a token of appreciation for your valuable contributions"
+              "Contribute to rainforest protection, combat climate change, and earn rewards by actively participating in conservation efforts."
             }
           />
         </div>

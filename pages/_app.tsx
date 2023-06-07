@@ -11,6 +11,7 @@ import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import { mainnet, polygon, polygonMumbai } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 import React from "react";
+import { MutatingDots } from "react-loader-spinner";
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [mainnet, polygon, polygonMumbai],
@@ -57,7 +58,19 @@ export default function App({ Component, pageProps }: AppProps) {
           </RainbowKitProvider>
         </WagmiConfig>
       ) : (
-        <h2>Loading</h2>
+        <div className="flex h-screen w-screen justify-center items-center">
+          <MutatingDots
+            height="100"
+            width="100"
+            color="#48bb78"
+            secondaryColor="#48bb78"
+            radius="12.5"
+            ariaLabel="mutating-dots-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+          />
+        </div>
       )}
     </div>
   );

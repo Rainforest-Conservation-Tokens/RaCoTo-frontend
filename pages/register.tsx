@@ -13,7 +13,14 @@ import useWeb3Storage from "@/hooks/useWeb3Storage";
 import { useRouter } from "next/router";
 import EN from "@/constants/en";
 import BR from "@/constants/br";
+import RacotoContract from "@/constants/abi.json";
 import LanguageDropdown from "@/components/lists/LanguageDropdown";
+import {
+  prepareWriteContract,
+  readContract,
+  waitForTransaction,
+  writeContract,
+} from "wagmi/actions";
 
 type ContentProps = {
   username: string;
@@ -43,6 +50,7 @@ const Register = () => {
     ownership_certificate: null,
     boundary_certificate: null,
   });
+
   const { storeFile } = useWeb3Storage();
 
   const getTranslation = (locale: string) => {
@@ -128,10 +136,9 @@ const Register = () => {
     };
     toast.dismiss("uploading");
     toast.success("Uploaded to IPFS");
-    toast.loading("Calling backend", {
+    toast.loading("Establishing contract connection", {
       id: "connecting",
     });
-    console.log(metadata);
     const metadataCid = await storeFile(
       new File([JSON.stringify(metadata)], "metadata.json", {
         type: "application/json",
@@ -139,6 +146,29 @@ const Register = () => {
     );
     console.log(metadataCid);
     toast.dismiss("connecting");
+    toast.loading("Connecting with contract", {
+      id: "connect",
+    });
+    try {
+      const { request, result } = await prepareWriteContract({
+        address: RacotoContract.address as `0x${string}`,
+        abi: RacotoContract.abi,
+        functionName: "register",
+        args: [metadataCid],
+      });
+      console.log(request, result);
+      const { hash } = await writeContract(request);
+      await waitForTransaction({ hash });
+      toast.dismiss("connect");
+      toast.success("Successfully registered");
+      toast.custom("You'll be notified once approved", {
+        icon: "ℹ️",
+      });
+    } catch (err) {
+      toast.dismiss("connect");
+      console.error(err);
+      toast.error("Error connecting with contract");
+    }
   };
 
   return (

@@ -4,8 +4,23 @@ import Card from "./Cards/Card";
 type ProcedureProps = {
   title: string;
   pre_title: string;
+  procedure_title_1: string;
+  procedure_desc_1: string;
+  procedure_title_2: string;
+  procedure_desc_2: string;
+  procedure_title_3: string;
+  procedure_desc_3: string;
 };
-const Procedure = ({ title, pre_title }: ProcedureProps) => {
+const Procedure = ({
+  title,
+  pre_title,
+  procedure_title_1,
+  procedure_desc_1,
+  procedure_title_2,
+  procedure_desc_2,
+  procedure_title_3,
+  procedure_desc_3,
+}: ProcedureProps) => {
   return (
     <div className="relative my-5 bg-[url('/assets/bg-2.png')] object-contain w-[100vw] h-[85vh]">
       <div className="absolute top-0 w-[100vw] h-[85vh] bg-[#61ce701a]"></div>
@@ -16,31 +31,25 @@ const Procedure = ({ title, pre_title }: ProcedureProps) => {
         <h1 className="font-recoleta_semibold text-5xl my-3 "> {pre_title}</h1>
         <div className="grid grid-cols-3 gap-8 w-[85%] mx-auto my-16">
           <Card
-            title="Register"
+            title={procedure_title_1}
             num="01"
             link="/register"
             img="/assets/Certificate.jpg"
-            desc={
-              "Join our platform, register an account, and be part of the global movement preserving rainforests and earning rewards."
-            }
+            desc={procedure_desc_1}
           />
           <Card
-            title="Persist"
+            title={procedure_title_2}
             num="02"
             link="/register"
             img="/assets/CO2.png"
-            desc={
-              "Preserve rainforest treasures by maintaining boundaries, playing a crucial role in their integrity and long-term conservation."
-            }
+            desc={procedure_desc_2}
           />
           <Card
             num="03"
-            title="Earn"
+            title={procedure_title_3}
             link="/register"
             img="/assets/Certificate.jpg"
-            desc={
-              "Contribute to rainforest protection, combat climate change, and earn rewards by actively participating in conservation efforts."
-            }
+            desc={procedure_desc_3}
           />
         </div>
       </Wrapper>

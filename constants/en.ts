@@ -63,4 +63,13 @@ export default {
   register_reset_btn: "Reset",
   register_submit_btn: "Register",
   register_terms: " I agree that this land is not under any other scheme",
+  procedure_title_1: "Register",
+  procedure_desc_1:
+    "Join our platform, register an account, and be part of the global movement preserving rainforests and earning rewards.",
+  procedure_title_2: "Persist",
+  procedure_desc_2:
+    "Preserve rainforest treasures by maintaining boundaries, playing a crucial role in their integrity and long-term conservation.",
+  procedure_title_3: "Earn",
+  procedure_desc_3:
+    "Contribute to rainforest protection, combat climate change, and earn rewards by actively participating in conservation efforts.",
 };

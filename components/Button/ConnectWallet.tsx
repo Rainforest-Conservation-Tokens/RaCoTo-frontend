@@ -1,6 +1,14 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import React from "react";
-export const ConnectWallet = () => {
+
+type ConnectWalletProps = {
+  wrong_network_btn?: string;
+  connect_wallet_btn?: string;
+};
+export const ConnectWallet = ({
+  wrong_network_btn = "Wrong Network",
+  connect_wallet_btn = "Connect Wallet",
+}: ConnectWalletProps) => {
   return (
     <ConnectButton.Custom>
       {({
@@ -37,7 +45,7 @@ export const ConnectWallet = () => {
                     className="bg-gradient-to-r from-[#4dbc5d] to-[#00a694] px-3 py-2 rounded-lg text-white hover:scale-95 transition duration-300"
                     type="button"
                   >
-                    Connect Wallet
+                    {connect_wallet_btn}
                   </button>
                 );
               }
@@ -48,7 +56,7 @@ export const ConnectWallet = () => {
                     type="button"
                     className="bg-[#f24343] px-3 py-2 rounded-lg text-white hover:scale-95 transition duration-300"
                   >
-                    Wrong network
+                    {wrong_network_btn}
                   </button>
                 );
               }

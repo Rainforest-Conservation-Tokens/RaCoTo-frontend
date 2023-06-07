@@ -72,4 +72,10 @@ export default {
   procedure_title_3: "Earn",
   procedure_desc_3:
     "Contribute to rainforest protection, combat climate change, and earn rewards by actively participating in conservation efforts.",
+  navbar_login: "Login",
+  navbar_register: "Register",
+  login_modal_title: "Connect Wallet",
+  login_modal_desc: "Connect Wallet to get started",
+  connect_wallet_btn: "Connect Wallet",
+  wrong_network_btn: "Wrong Network",
 };

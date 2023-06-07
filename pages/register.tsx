@@ -10,7 +10,7 @@ import { TbFileUpload } from "react-icons/tb";
 import toast from "react-hot-toast";
 import { ConnectWallet } from "@/components/Button/ConnectWallet";
 import useWeb3Storage from "@/hooks/useWeb3Storage";
-import { Router, useRouter } from "next/router";
+import { useRouter } from "next/router";
 import EN from "@/constants/en";
 import BR from "@/constants/br";
 import RacotoContract from "@/constants/abi.json";
@@ -180,7 +180,7 @@ const Register = () => {
       args: [address],
     });
     if (data) {
-      toast.custom("You're already whitelisted", {
+      toast("You're already whitelisted", {
         icon: "ℹ️",
       });
       router.push("/");

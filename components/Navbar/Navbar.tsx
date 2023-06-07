@@ -3,7 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import Wrapper from "../Wrapper";
 import LoginModal from "../modal/Login";
+import EN from "@/constants/en";
+import BR from "@/constants/br";
 import LanguageDropdown from "../lists/LanguageDropdown";
+import { useRouter } from "next/router";
 type NavbarProps = {
   className?: string;
 };
@@ -11,6 +14,7 @@ const Navbar = ({ className }: NavbarProps) => {
   const [show, setScroll] = useState("");
   const [link, setLink] = useState("text-white");
   const [open, setOpen] = useState(false);
+  const { locale } = useRouter();
   const [lastScrollY, setLastScrollY] = useState(0);
   const handleScroll = () => {
     if (window.scrollY > 150) {
@@ -31,6 +35,16 @@ const Navbar = ({ className }: NavbarProps) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [lastScrollY]);
+
+  const getTranslation = (locale: string) => {
+    switch (locale) {
+      case "br":
+        return BR;
+      default:
+        return EN;
+    }
+  };
+  const t = getTranslation(locale as string);
   return (
     <nav
       className={`w-screen h-[50px] md:h-[80px] z-20 sticky transition-transform duration-700 flex justify-between items-center ${link}  ${show} ${className}`}
@@ -66,17 +80,25 @@ const Navbar = ({ className }: NavbarProps) => {
             onClick={() => setOpen(true)}
             className="border-[#00a694] hover:scale-95 mr-2 transition duration-300 border-2 px-3 py-1 rounded-lg "
           >
-            Login
+            {t.navbar_login}
           </button>
           <Link
             href="/register"
             className="bg-gradient-to-r from-[#4dbc5d] to-[#00a694] hover:scale-95 transition duration-300 px-3 py-2 rounded-lg text-white"
           >
-            Register
+            {t.navbar_register}
           </Link>
         </section>
       </Wrapper>
-      {open && <LoginModal setOpen={setOpen} />}
+      {open && (
+        <LoginModal
+          setOpen={setOpen}
+          login_modal_desc={t.login_modal_desc}
+          login_modal_title={t.login_modal_title}
+          connect_wallet_btn={t.connect_wallet_btn}
+          wrong_network_btn={t.wrong_network_btn}
+        />
+      )}
     </nav>
   );
 };

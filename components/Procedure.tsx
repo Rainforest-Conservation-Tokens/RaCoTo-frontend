@@ -22,8 +22,8 @@ const Procedure = ({
   procedure_desc_3,
 }: ProcedureProps) => {
   return (
-    <div className="relative my-5 bg-[url('/assets/bg-2.png')] object-contain w-[100vw] h-[85vh]">
-      <div className="absolute top-0 w-[100vw] h-[85vh] bg-[#61ce701a]"></div>
+    <div className="relative my-5 bg-[url('/assets/bg-2.png')] object-contain w-[100vw] h-[90vh]">
+      <div className="absolute top-0 w-[100vw] h-[90vh] bg-[#61ce701a]"></div>
       <Wrapper className="flex flex-col justify-center items-center h-full">
         <h2 className="font-proxima_bold text-xl text-[#48bb78] mt-5 md:mt-9">
           {title}

@@ -66,15 +66,19 @@ export default {
   register_reset_btn: "Limpar",
   register_submit_btn: "Registrar",
   register_terms: "Concordo que esta terra não está sob nenhum outro esquema",
-  procedure_title_1: "Registrar"
-procedure_desc_1: "Junte-se à nossa plataforma, registre uma conta e faça parte do movimento global de preservação das florestas tropicais, ganhando recompensas."
-procedure_title_2: "Persistir"
-procedure_desc_2: "Preserve os tesouros das florestas tropicais mantendo limites, desempenhando um papel crucial em sua integridade e conservação a longo prazo."
-procedure_title_3: "Ganhar"
-procedure_desc_3: "Contribua para a proteção das florestas tropicais, combata as mudanças climáticas e ganhe recompensas participando ativamente dos esforços de conservação."
-
-
-
-
-
+  procedure_title_1: "Registrar",
+  procedure_desc_1:
+    "Junte-se à nossa plataforma, registre uma conta e faça parte do movimento global de preservação das florestas tropicais, ganhando recompensas.",
+  procedure_title_2: "Persistir",
+  procedure_desc_2:
+    "Preserve os tesouros das florestas tropicais mantendo limites, desempenhando um papel crucial em sua integridade e conservação a longo prazo.",
+  procedure_title_3: "Ganhar",
+  procedure_desc_3:
+    "Contribua para a proteção das florestas tropicais, combata as mudanças climáticas e ganhe recompensas participando ativamente dos esforços de conservação.",
+  navbar_login: "Conectar",
+  navbar_register: "Registrar",
+  login_modal_title: "Conectar Carteira",
+  login_modal_desc: "Conecte a carteira para começar",
+  wrong_network_btn: "Mudar de rede",
+  connect_wallet_btn: "Conectar Carteira",
 };

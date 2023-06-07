@@ -51,4 +51,19 @@ export default {
   home_project_title: "Explore nossos projetos verificados pela tecnologia",
   home_procedure_title: "Tomar medidas em 3 passos simples",
   home_procedure_pre_title: "COMO FUNCIONA",
+  register_title: "Registre sua floresta",
+  register_input_wallet: "Endereço da carteira",
+  register_input_wallet_placeholder: "Digite o endereço da carteira",
+  register_input_username: "Nome de usuário",
+  register_input_username_placeholder: "Digite o nome de usuário",
+  register_input_land_image: "Imagem da terra",
+  register_input_land_image_placeholder:
+    "Clique para fazer upload de imagens da terra",
+  register_input_certificate: "Certificados",
+  register_input_ownership_certificate_placeholder:
+    "Certificado de propriedade",
+  register_input_boundary_certificate_placeholder: "Certificado de limite",
+  register_reset_btn: "Limpar",
+  register_submit_btn: "Registrar",
+  register_terms: "Concordo que esta terra não está sob nenhum outro esquema",
 };

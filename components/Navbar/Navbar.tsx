@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import Wrapper from "../Wrapper";
 import LoginModal from "../modal/Login";
-import { useRouter } from "next/router";
 import LanguageDropdown from "../lists/LanguageDropdown";
 type NavbarProps = {
   className?: string;

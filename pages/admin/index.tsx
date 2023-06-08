@@ -1,15 +1,33 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useRouter } from "next/router";
 import { ConnectWallet } from "@/components/Button/ConnectWallet";
 import Wrapper from "@/components/Wrapper";
 import Image from "next/image";
+import EN from "@/constants/en";
+import BR from "@/constants/br";
+import LanguageDropdown from "@/components/lists/LanguageDropdown";
+import RacotoContract from "@/constants/abi.json";
+import {
+  prepareWriteContract,
+  waitForTransaction,
+  writeContract,
+} from "wagmi/actions";
+import { useAccount } from "wagmi";
 
 const AdminIndex = () => {
-  const router = useRouter();
+  const { locale } = useRouter();
   const [isValid, setIsValid] = useState<boolean>(false);
+  const [content, setContent] = useState<{
+    wallet_address: string;
+    geoJson?: string;
+  }>({
+    geoJson: "",
+    wallet_address: "",
+  });
   const [showAccept, setShowAccept] = useState<boolean>(true);
+  const { isConnected } = useAccount();
   const [data, setData] = useState<{
     walletAddress: string;
     password: string;
@@ -53,6 +71,91 @@ const AdminIndex = () => {
         console.log(err);
       });
   };
+  const getTranslation = (locale: string) => {
+    switch (locale) {
+      case "br":
+        return BR;
+      default:
+        return EN;
+    }
+  };
+  const t = getTranslation(locale as string);
+
+  const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setContent({
+      ...content,
+      [name]: value,
+    });
+  };
+
+  const handleAccept = async (e: any) => {
+    e.preventDefault();
+    if (!isConnected) {
+      toast.error("Please connect your wallet");
+      return;
+    }
+    if (content.wallet_address === "") {
+      toast.error("Please fill all the fields");
+      return;
+    }
+    toast.loading("Calling contract", {
+      id: "connecting",
+    });
+    try {
+      const { request } = await prepareWriteContract({
+        address: RacotoContract.address as `0x${string}`,
+        abi: RacotoContract.abi,
+        functionName: "whitelistRainforestOwner",
+        args: [content.wallet_address, content.geoJson],
+      });
+
+      const { hash } = await writeContract(request);
+      await waitForTransaction({ hash });
+      toast.dismiss("connecting");
+      toast.success("Successfully approved");
+      setContent({
+        geoJson: "",
+        wallet_address: "",
+      });
+    } catch (err) {
+      toast.dismiss("connecting");
+      console.error(err);
+      toast.error("Error connecting with contract");
+    }
+  };
+  const handleReject = async (e: any) => {
+    e.preventDefault();
+    if (!isConnected) {
+      toast.error("Please connect your wallet");
+      return;
+    }
+    if (content.wallet_address === "" || content.geoJson === "") {
+      toast.error("Please fill all the fields");
+      return;
+    }
+    toast.loading("Calling contract", {
+      id: "connecting",
+    });
+    try {
+      const { request } = await prepareWriteContract({
+        address: RacotoContract.address as `0x${string}`,
+        abi: RacotoContract.abi,
+        functionName: "rejectRainforestOwner",
+        args: [content.wallet_address],
+      });
+      const { hash } = await writeContract(request);
+      await waitForTransaction({ hash });
+      toast.dismiss("connecting");
+      toast.success("Successfully rejected");
+    } catch (err) {
+      toast.dismiss("connecting");
+      console.error(err);
+      toast.error("Error connecting with contract");
+    }
+  };
+
   return (
     <div>
       {isValid ? (
@@ -76,7 +179,7 @@ const AdminIndex = () => {
                     setShowAccept(true);
                   }}
                 >
-                  Accept
+                  {t.admin_nav_accept}
                 </button>
                 <button
                   className="hover:text-[#18c99d]"
@@ -84,57 +187,66 @@ const AdminIndex = () => {
                     setShowAccept(false);
                   }}
                 >
-                  Reject
+                  {t.admin_nav_reject}
                 </button>
               </div>
-              <ConnectWallet />
+              <section className="flex">
+                <LanguageDropdown className="text-white" />
+                <ConnectWallet
+                  connect_wallet_btn={t.connect_wallet_btn}
+                  wrong_network_btn={t.wrong_network_btn}
+                />
+              </section>
             </Wrapper>
           </nav>
           <Wrapper className="mt-12 w-full flex flex-col items-center justify-center h-[70vh]">
             {showAccept ? (
               <section className="font-proxima w-[50%] text-center text-white flex flex-col">
                 <h2 className="font-recoleta text-3xl mb-5">
-                  Accept Application
+                  {t.admin_accept_app_title}
                 </h2>
                 <input
-                  placeholder="Enter wallet address"
+                  placeholder={t.admin_wallet_placeholder}
                   className="border-b-2 border-white/[0.3] p-1 w-1/2 my-5 outline-none bg-transparent mx-auto "
-                  id="walletAddress"
+                  id="wallet_address"
+                  name="wallet_address"
                   type="text"
-                  onChange={handleChange}
+                  onChange={handleOnChange}
                 />
                 <input
-                  placeholder="Enter GeoJson Data"
-                  className="border-b-2 border-white/[0.3] p-1 w-1/2 my-5 outline-none bg-transparent mx-auto "
-                  id="walletAddress"
+                  placeholder={t.admin_boundary_placeholder}
+                  className="border-b-2 border-white/[0.3] p-1 w-1/2 h-50px my-5 outline-none bg-transparent mx-auto "
+                  id="geoJson"
+                  name="geoJson"
                   type="text"
-                  onChange={handleChange}
+                  onChange={handleOnChange}
                 />
                 <button
                   className=" outline-none bg-[#18c99d] p-2 rounded-lg w-1/2 my-7 mx-auto hover:scale-95 cursor-pointer duration-300"
-                  onClick={handleSubmit}
+                  onClick={handleAccept}
                 >
-                  Submit
+                  {t.admin_submit}
                 </button>
               </section>
             ) : (
               <section className="font-proxima w-[50%] text-center text-white flex flex-col">
                 <h2 className="font-recoleta text-3xl mb-5">
-                  Reject Application
+                  {t.admin_reject_app_title}
                 </h2>
                 <input
-                  placeholder="Enter wallet address"
+                  placeholder={t.admin_wallet_placeholder}
                   className="border-b-2 border-white/[0.3] p-1 w-1/2 my-5 outline-none bg-transparent mx-auto "
-                  id="walletAddress"
+                  id="wallet_address"
+                  name="wallet_address"
                   type="text"
-                  onChange={handleChange}
+                  onChange={handleOnChange}
                 />
 
                 <button
                   className=" outline-none bg-[#18c99d] p-2 rounded-lg w-1/2 my-7 mx-auto hover:scale-95 cursor-pointer duration-300"
-                  onClick={handleSubmit}
+                  onClick={handleReject}
                 >
-                  Submit
+                  {t.admin_submit}
                 </button>
               </section>
             )}
@@ -145,17 +257,17 @@ const AdminIndex = () => {
         <div className="flex justify-center items-center h-screen w-screen bg-[#0c0f1a]">
           <section className="font-proxima w-[50%] text-center text-white flex flex-col">
             <h2 className="font-proxima_semibold text-3xl mb-5">
-              Admin Console
+              {t.admin_login_title}
             </h2>
             <input
-              placeholder="Enter wallet address"
+              placeholder={t.admin_wallet_placeholder}
               className="border-b-2 border-white/[0.3] p-1 w-1/2 my-5 outline-none bg-transparent mx-auto "
               id="walletAddress"
               type="text"
               onChange={handleChange}
             />
             <input
-              placeholder="Enter password"
+              placeholder={t.admin_password_placeholder}
               className="outline-none border-b-2 p-1 border-white/[0.3] mx-auto bg-transparent w-1/2"
               id="password"
               type="password"
@@ -165,7 +277,7 @@ const AdminIndex = () => {
               className=" outline-none bg-[#18c99d] p-2 rounded-lg w-1/2 my-7 mx-auto hover:scale-95 cursor-pointer duration-300"
               onClick={handleSubmit}
             >
-              Submit
+              {t.admin_submit}
             </button>
           </section>
         </div>

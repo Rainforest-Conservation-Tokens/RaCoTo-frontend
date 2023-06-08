@@ -78,4 +78,13 @@ export default {
   login_modal_desc: "Connect Wallet to get started",
   connect_wallet_btn: "Connect Wallet",
   wrong_network_btn: "Wrong Network",
+  admin_login_title: "Admin Console",
+  admin_wallet_placeholder: "Enter wallet address",
+  admin_password_placeholder: "Enter password",
+  admin_boundary_placeholder: "Enter GeoJson Data",
+  admin_submit: "Submit",
+  admin_nav_accept: "Accept",
+  admin_nav_reject: "Reject",
+  admin_accept_app_title: "Accept Application",
+  admin_reject_app_title: "Accept Application",
 };

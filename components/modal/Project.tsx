@@ -14,27 +14,27 @@ const ProjectModal = ({ setOpen }: LoginModalProps) => {
   const { address, isConnected } = useAccount();
   const router = useRouter();
 
-  const checkValid = () => {
-    axios
-      .post("/api/check", { address })
-      .then((res) => {
-        console.log(res);
-        if (res.data.status === "SUCCESS" && res.data.isValid) {
-          router.replace("/user/abc");
-        } else if (res.data.status === "SUCCESS" && !res.data.isValid) {
-          toast("Not approved yet!", {
-            icon: "⚠️",
-          });
-          router.replace("/waitlist");
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-  if (isConnected) {
-    checkValid();
-  }
+  // const checkValid = () => {
+  //   axios
+  //     .post("/api/check", { address })
+  //     .then((res) => {
+  //       console.log(res);
+  //       if (res.data.status === "SUCCESS" && res.data.isValid) {
+  //         router.replace("/user/abc");
+  //       } else if (res.data.status === "SUCCESS" && !res.data.isValid) {
+  //         toast("Not approved yet!", {
+  //           icon: "⚠️",
+  //         });
+  //         router.replace("/waitlist");
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+  // if (isConnected) {
+  //   checkValid();
+  // }
   return (
     <div className="fixed top-0 left-0 w-screen h-screen bg-black/[.3] flex justify-center items-center">
       <section className="bg-white relative w-[20%] h-[30%] rounded-lg text-black flex flex-col justify-around p-3 items-center">

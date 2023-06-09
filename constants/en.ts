@@ -11,14 +11,14 @@ export default {
   hero_desc:
     "Join the Rainforest Proof-Of-Conversation project: obtain blockchain-validated proof of the carbon dioxide absorption of your rainforest tracked in real time by satellites.",
   hero_button: "Join the Waitlist",
-  home_pre_title_2: "Steps Towards Conversation",
+  home_pre_title_2: "Steps Towards Conservation",
   home_title_2: "Why Rainforest Proof-Of-Conservation matters?",
   home_problem_title: "The Problem",
   home_problem_desc:
-    "The current Voluntary carbon market (VCM) is hard to access both for individuals and businesses. It lacks transparency,traceability and contains many low-quality carbon compensation projects.",
+    "The voluntary carbon market is flooded with trust-based, intransparent, and illiquid carbon offsets that cannot be easily verified and traded. Many certificates even turn out to be not backed by data.",
   home_solution_title: "The Solution",
   home_solution_desc:
-    " Carbon compensation with Coorest is easy, fast and transparent because we utilise blockchain technology. Everyone can compensate for their CO2 footprint instantly, from anywhere in the world, leaving a immutable and ​​traceable record.",
+    "Rainforest Proof-of-Conservation enables direct and immediate audits for everyone by storing real-time satellite observations of forest cover in a tamper-proof, validated, and transparent way in the blockchain. ",
   home_pre_title_3: "TRUSTED BY LEADING BRANDS AROUND THE WORLD",
   accordian_title_1: "What is the RaCoTo project?",
   accordian_desc_1:

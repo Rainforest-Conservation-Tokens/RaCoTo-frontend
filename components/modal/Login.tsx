@@ -3,7 +3,7 @@ import { RxCross2 } from "react-icons/rx";
 import { useAccount } from "wagmi";
 import toast from "react-hot-toast";
 import { readContract } from "wagmi/actions";
-import RacotoContract from "@/constants/abi.json";
+import RacotoContract from "@/constants/abis/abi.json";
 import { useRouter } from "next/router";
 
 type LoginModalProps = {

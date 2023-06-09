@@ -8,7 +8,7 @@ import Image from "next/image";
 import EN from "@/constants/en";
 import BR from "@/constants/br";
 import LanguageDropdown from "@/components/lists/LanguageDropdown";
-import RacotoContract from "@/constants/abi.json";
+import RacotoContract from "@/constants/abis/abi.json";
 import {
   prepareWriteContract,
   waitForTransaction,

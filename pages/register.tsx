@@ -13,7 +13,7 @@ import useWeb3Storage from "@/hooks/useWeb3Storage";
 import { useRouter } from "next/router";
 import EN from "@/constants/en";
 import BR from "@/constants/br";
-import RacotoContract from "@/constants/abi.json";
+import RacotoContract from "@/constants/abis/abi.json";
 import LanguageDropdown from "@/components/lists/LanguageDropdown";
 import {
   prepareWriteContract,

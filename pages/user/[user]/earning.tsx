@@ -4,8 +4,7 @@ import Wrapper from "@/components/Wrapper";
 import { useRouter } from "next/router";
 import EN from "@/constants/en";
 import BR from "@/constants/br";
-import RaCoToToken from "@/constants/racotoToken.json";
-import RaCoToMain from "@/constants/RaCoToMain.json";
+import RaCoToMain from "@/constants/abis/RaCoToMain.json";
 import {
   prepareWriteContract,
   readContract,
@@ -38,12 +37,13 @@ export default function Earnings() {
 
   const getBal = async () => {
     const data = await readContract({
-      address: RaCoToToken.address as `0x${string}`,
-      abi: RaCoToToken.abi,
-      functionName: "balanceOf",
+      address: RaCoToMain.address as `0x${string}`,
+      abi: RaCoToMain.abi,
+      functionName: "tokensNeededToClaimByUser",
       args: [address],
     });
-    setBalance(Number(data as bigint));
+    console.log(data);
+    setBalance(Number(data as bigint) / 10 ** 18);
   };
   const handleWithdraw = async () => {
     if (!address) {

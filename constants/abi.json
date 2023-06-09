@@ -1,5 +1,5 @@
 {
-  "address": "0xF402dF1324b6C143031594F9dA668b4E0C6C035c",
+  "address": "0x99BD41871A3F1E9Cb5a15545aD9265bB87DDcA5A",
   "abi": [
     { "inputs": [], "name": "AlreadySentProofOfOwnership", "type": "error" },
     {

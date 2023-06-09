@@ -41,9 +41,9 @@ export default function User() {
       router.push("/register");
     }
   };
-  // if (address) {
-  //   checkWhitlisted(user as `0x${string}`);
-  // }
+  if (address) {
+    checkWhitlisted(user as `0x${string}`);
+  }
 
   return (
     <main className="realtive w-full">

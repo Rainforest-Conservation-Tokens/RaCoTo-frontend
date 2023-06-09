@@ -157,7 +157,7 @@ const Register = () => {
         functionName: "register",
         args: [metadataCid],
       });
-      console.log(request, result);
+
       const { hash } = await writeContract(request);
       await waitForTransaction({ hash });
       toast.dismiss("connect");

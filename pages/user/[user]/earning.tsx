@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import EN from "@/constants/en";
 import BR from "@/constants/br";
 import RaCoToToken from "@/constants/racotoToken.json";
+import RaCoToMain from "@/constants/RaCoToMain.json";
 import {
   prepareWriteContract,
   readContract,
@@ -19,7 +20,7 @@ export default function Earnings() {
   const { address } = useAccount();
   const { locale } = useRouter();
   const router = useRouter();
-  const [balance, setBalance] = useState(0.0003);
+  const [balance, setBalance] = useState(0);
   const getTranslation = (locale: string) => {
     switch (locale) {
       case "br":
@@ -44,6 +45,22 @@ export default function Earnings() {
     });
     setBalance(Number(data as bigint));
   };
+  const handleWithdraw = async () => {
+    if (!address) {
+      toast.error("Connect Wallet");
+      return;
+    }
+    const { request } = await prepareWriteContract({
+      address: RaCoToMain.address as `0x${string}`,
+      abi: RaCoToMain.abi,
+      functionName: "claimToken",
+      args: [],
+    });
+    const { hash } = await writeContract(request);
+    await waitForTransaction({ hash });
+    toast.success("Withdrawn");
+    router.push(`/user/${address}`);
+  };
   getBal();
   return (
     <main className="realtive w-full">
@@ -57,7 +74,10 @@ export default function Earnings() {
             {" "}
             {balance} RCT
           </h2>
-          <button className="bg-black text-white px-4 py-2 my-3 transition duration-300 hover:scale-95 rounded-md text-lg lg:text-xl">
+          <button
+            className="bg-black text-white px-4 py-2 my-3 transition duration-300 hover:scale-95 rounded-md text-lg lg:text-xl"
+            onClick={handleWithdraw}
+          >
             {t.user_withdraw}
           </button>
         </div>

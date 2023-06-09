@@ -59,19 +59,42 @@ const Navbar = ({ className }: NavbarProps) => {
             className="w-14 h-14"
           />
         </Link>
-        <div className="flex justify-between basis-1/2">
-          <h2>Explore</h2>
-          <h2>Market</h2>
-          <h2>FaQ</h2>
-          <div>
-            <select
-              className="bg-transparent outline-none"
-              defaultValue={"Documents"}
-            >
-              <option className="text-black px-2">Documents</option>
-              <option className="text-black p-2">WhitePaper</option>
-            </select>
-          </div>
+        <div className="flex justify-between basis-[55%] font-proxima text-xl ">
+          <Link
+            href="#home"
+            scroll={true}
+            className="hover:scale-105 transition duration-300"
+          >
+            {t.nav_home}
+          </Link>
+          <Link
+            href="#synopsis"
+            scroll
+            className="hover:scale-105 transition duration-300"
+          >
+            {t.nav_synopsis}
+          </Link>
+          <Link
+            href="#procedure"
+            scroll
+            className="hover:scale-105 transition duration-300"
+          >
+            {t.nav_procedure}
+          </Link>
+          <Link
+            href="#projects"
+            scroll
+            className="hover:scale-105 transition duration-300"
+          >
+            {t.nav_users}
+          </Link>
+          <Link
+            href="#faqs"
+            scroll
+            className="hover:scale-105 transition duration-300"
+          >
+            {t.nav_faqs}
+          </Link>
         </div>
         <section className="flex">
           <LanguageDropdown className={link} />

@@ -72,10 +72,10 @@ const Register = () => {
       [name]: value,
     });
   };
-  const checkFile = (file: File, fileTypes: string[]) => {
+  const checkFile = (file: File, fileTypes: string[], fileErr: string) => {
     const { size, type } = file;
     if (!fileTypes.includes(type)) {
-      toast.error("File format must be either png or jpg");
+      toast.error(fileErr);
       return false;
     }
     // Check file size to ensure it is less than 2MB.
@@ -210,7 +210,7 @@ const Register = () => {
         </Wrapper>
       </nav>
       <Wrapper className="">
-        <div className="w-[75%]  mx-auto my-10">
+        <div className="w-[82%]  mx-auto my-10">
           <Wrapper className="bg-white rounded-xl py-5">
             <h1 className="text-2xl font-bold my-5 mb-8 font-proxima lg:text-3xl">
               {t.register_title}
@@ -258,11 +258,11 @@ const Register = () => {
                       setLandImage("");
                       return;
                     }
-                    const isValid = checkFile(file, [
-                      "image/png",
-                      "image/jpg",
-                      "image/jpeg",
-                    ]);
+                    const isValid = checkFile(
+                      file,
+                      ["image/png", "image/jpg", "image/jpeg"],
+                      "File format must be either png or jpg"
+                    );
                     if (!isValid) return;
                     setContent({
                       ...content,
@@ -316,7 +316,7 @@ const Register = () => {
                   {t.register_input_certificate}
                 </h3>
               </label>
-              <div className="flex justify-around w-full">
+              <div className="flex justify-between w-full">
                 <div className="relative my-4 flex aspect-video w-[45%] items-center justify-center rounded-xl border-2 border-dashed  border-[#CFCFCF] text-slate-400 ">
                   <input
                     type="file"
@@ -327,7 +327,11 @@ const Register = () => {
                         setOwnershipCertificateFile(null);
                         return;
                       }
-                      const isValid = checkFile(file, ["application/pdf"]);
+                      const isValid = checkFile(
+                        file,
+                        ["application/pdf"],
+                        "Pdf file format is required"
+                      );
                       if (!isValid) return;
 
                       setContent({
@@ -379,7 +383,11 @@ const Register = () => {
                         setBoundaryCertificateFile(null);
                         return;
                       }
-                      const isValid = checkFile(file, ["application/pdf"]);
+                      const isValid = checkFile(
+                        file,
+                        ["application/pdf"],
+                        "Pdf file format is required"
+                      );
                       if (!isValid) return;
 
                       setContent({
@@ -428,16 +436,16 @@ const Register = () => {
                 ref={captchaRef}
               />
 
-              <div className="flex my-5 mx-2">
+              <div className="flex my-6 mx-2">
                 <input
                   type="checkbox"
                   name="terms"
-                  className="rounded-lg  mr-2 outline-none text-lg"
+                  className="rounded-lg  mr-2 outline-none w-4 h-4 my-auto"
                   onChange={(e) => {
                     e.target.checked ? setTerms(true) : setTerms(false);
                   }}
                 />
-                <h2 className="lg:text-base font-proxima">
+                <h2 className="lg:text-lg text-base  font-proxima">
                   {t.register_terms}
                 </h2>
               </div>

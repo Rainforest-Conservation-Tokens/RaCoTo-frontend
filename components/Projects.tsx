@@ -10,7 +10,7 @@ type ProjectsProps = {
 };
 const Projects = ({ title, pre_title }: ProjectsProps) => {
   return (
-    <div className="my-5 w-full ">
+    <div className="my-5 w-full " id="projects">
       <Wrapper className="flex flex-col justify-center items-center h-full">
         <h2 className="font-proxima_bold text-xl text-[#48bb78] mt-5 md:mt-9 lg:text-2xl">
           {pre_title}

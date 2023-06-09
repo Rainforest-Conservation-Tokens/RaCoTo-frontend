@@ -284,7 +284,7 @@ const Register = () => {
                   <button
                     type="button"
                     onClick={() => avatarRef!.current!.click()}
-                    className="flex flex-col justify-center rounded-full p-4 text-center text-base text-black/[0.7] font-semibold transition duration-300 "
+                    className="flex flex-col justify-center rounded-full p-4 text-center text-base text-black/[0.7] font-semibold transition duration-300"
                   >
                     <FiUploadCloud className="h-4 w-4 mx-auto lg:w-5 lg:h-5" />
                     <h2 className="lg:text-base font-proxima">
@@ -359,7 +359,7 @@ const Register = () => {
                   {ownershipCertificateFile && (
                     <>
                       <div>
-                        <BsFileEarmarkPdf className="h-10 w-10 my-auto mr-1" />
+                        <BsFileEarmarkPdf className="h-10 w-10 my-auto mr-1 mx-auto" />
                         <h2>{ownershipCertificateFile.name}</h2>
                         <button
                           type="button"
@@ -415,7 +415,7 @@ const Register = () => {
                   {boundaryCertificateFile && (
                     <>
                       <div>
-                        <BsFileEarmarkPdf className="h-10 w-10 my-auto mr-1" />
+                        <BsFileEarmarkPdf className="h-10 w-10 my-auto mr-1 mx-auto" />
                         <h2>{boundaryCertificateFile.name}</h2>
                         <button
                           type="button"

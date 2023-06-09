@@ -25,6 +25,8 @@ const LoginModal = ({
   const router = useRouter();
 
   const checkWhitlisted = async (address: `0x${string}`) => {
+    try {
+    } catch {}
     toast.loading("Checking", {
       id: "checking",
     });

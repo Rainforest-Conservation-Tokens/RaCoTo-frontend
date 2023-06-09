@@ -99,4 +99,9 @@ export default {
   nav_procedure: "Prova de Conversação",
   nav_users: "Usuários RaCoTo",
   nav_faq: "FAQ",
+  user_earnings: "Seus Ganhos",
+user_withdraw: "Retirar",
+user_nav_project: "Meu Projeto",
+user_nav_earnings: "Meus Ganhos",
+user_nav_support: "Suporte",
 };

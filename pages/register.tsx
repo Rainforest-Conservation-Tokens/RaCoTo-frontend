@@ -52,7 +52,7 @@ const Register = () => {
     boundary_certificate: null,
   });
 
-  const { storeFile } = useWeb3Storage();
+  const { storeFile, getCid } = useWeb3Storage();
 
   const getTranslation = (locale: string) => {
     switch (locale) {
@@ -140,7 +140,7 @@ const Register = () => {
     toast.loading("Establishing contract connection", {
       id: "connecting",
     });
-    const metadataCid = await storeFile(
+    const metadataCid = await getCid(
       new File([JSON.stringify(metadata)], "metadata.json", {
         type: "application/json",
       })

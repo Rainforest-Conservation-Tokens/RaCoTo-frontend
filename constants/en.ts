@@ -7,9 +7,9 @@ export default {
   toast_invalid_address: "Enter Valid Address",
   toast_already_whitelisted: "Address Already Whitelisted",
   toast_added_to_whitelist: "Address Added to Whitelist",
-  hero_title: "Forest preservation verified by Crypotographic Truth",
+  hero_title: "Forest preservation verified by Cryptographic Truth",
   hero_desc:
-    "Join the Rainforest Proof-Of-Conversation project: obtain blockchainvalidated proof of the carbon dioxide absorption of your rainforest tracked in real time by satellites.",
+    "Join the Rainforest Proof-Of-Conversation project: obtain blockchain-validated proof of the carbon dioxide absorption of your rainforest tracked in real time by satellites.",
   hero_button: "Join the Waitlist",
   home_pre_title_2: "Steps Towards Conversation",
   home_title_2: "Why Rainforest Proof-Of-Conservation matters?",
@@ -48,8 +48,7 @@ export default {
   home_faq_pre_title: "LEARN MORE ABOUT RACOTO",
   home_project_pre_title: "JOIN THE NET ZERO MOVEMENT",
   home_project_title: "Explore our Proof-Of-Preservation projects",
-  home_procedure_title:
-    "Data powering carbon offsets with triustless integrity",
+  home_procedure_title: "Data powering carbon offsets with trustless integrity",
   home_procedure_pre_title: "HOW IT WORKS",
   register_title: "Register your rainforest",
   register_input_wallet: "Wallet Address",
@@ -94,4 +93,10 @@ export default {
   nav_procedure: "Proof-Of-conversation",
   nav_users: "RaCoTo Users",
   nav_faq: "FAQ",
+  user_earnings: "Your Earnings",
+  user_withdraw: "Withdraw",
+  user_nav_project:"My Project",
+  user_nav_earnings:"My Earnings",
+  user_nav_support:"Support"
+
 };

@@ -26,6 +26,23 @@ const useWeb3Storage = () => {
       throw new Error(err.message);
     }
   };
+  const getCid = async (file: File) => {
+    try {
+      const client = makeStorageClient();
+      const newFile = new File(
+        [file],
+        uuidv4() + "." + file.type.split("/")[1],
+        {
+          type: file.type,
+        }
+      );
+      const cid = await client.put([newFile]);
+      return cid;
+    } catch (err: any) {
+      console.error(err);
+      throw new Error(err.message);
+    }
+  };
 
   const retrieveFile = async (cid: string) => {
     const client = makeStorageClient();
@@ -40,7 +57,7 @@ const useWeb3Storage = () => {
     return "https://" + file[0].cid + ".ipfs.w3s.link/" + file[0].name;
   };
 
-  return { makeStorageClient, storeFile, retrieveFile };
+  return { makeStorageClient, storeFile, retrieveFile, getCid };
 };
 
 export default useWeb3Storage;

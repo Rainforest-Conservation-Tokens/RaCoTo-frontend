@@ -11,7 +11,7 @@ export default {
   hero_desc:
     "Join the Rainforest Proof-Of-Conversation project: obtain blockchain-validated proof of the carbon dioxide absorption of your rainforest tracked in real time by satellites.",
   hero_button: "Join the Waitlist",
-  home_pre_title_2: "Steps Towards Conversation",
+  home_pre_title_2: "Steps Towards Conservation",
   home_title_2: "Why Rainforest Proof-Of-Conservation matters?",
   home_problem_title: "The Problem",
   home_problem_desc:

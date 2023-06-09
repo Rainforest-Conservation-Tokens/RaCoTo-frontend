@@ -28,10 +28,13 @@ const Procedure = ({
     >
       <div className="absolute top-0 w-[100vw] h-[90vh] bg-[#61ce701a]"></div>
       <Wrapper className="flex flex-col justify-center items-center h-full">
-        <h2 className="font-proxima_bold text-xl text-[#48bb78] mt-5 md:mt-9">
+        <h2 className="font-proxima_bold text-xl text-[#48bb78] mt-5 md:mt-9 text-center">
           {pre_title}
         </h2>
-        <h1 className="font-recoleta_semibold text-5xl my-3 "> {title}</h1>
+        <h1 className="font-recoleta_semibold text-5xl my-3 text-center ">
+          {" "}
+          {title}
+        </h1>
         <div className="grid grid-cols-3 gap-8 w-[85%] mx-auto my-16">
           <Card
             title={procedure_title_1}

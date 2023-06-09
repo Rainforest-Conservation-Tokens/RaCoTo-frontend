@@ -25,6 +25,9 @@ const LoginModal = ({
   const router = useRouter();
 
   const checkWhitlisted = async (address: `0x${string}`) => {
+    toast.loading("Checking", {
+      id: "checking",
+    });
     const data = await readContract({
       address: RacotoContract.address as `0x${string}`,
       abi: RacotoContract.abi,
@@ -32,15 +35,22 @@ const LoginModal = ({
       args: [address],
     });
     if (data) {
+      toast.dismiss("checking");
       toast("Redirecting to dashboard", {
         icon: "ℹ️",
       });
-      router.push(`/user/${address}`);
+      setTimeout(() => {
+        router.push(`/user/${address}`);
+      }, 1000);
+      // router.push(`/user/${address}`);
     } else {
+      toast.dismiss("checking");
       toast("You are not whitelisted", {
         icon: "❌",
       });
-      router.push("/register");
+      setTimeout(() => {
+        router.push("/register");
+      }, 1000);
     }
   };
   if (address) {

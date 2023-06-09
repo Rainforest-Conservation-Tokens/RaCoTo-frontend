@@ -65,7 +65,7 @@ export default function User() {
             height={200}
             className="w-full h-[80%] rounded-t-lg object-cover"
           />
-          <h2 className="font-proxima text-xl m-3">Brazil 101</h2>
+          <h2 className="font-proxima text-xl m-3">Mongabay</h2>
         </div>
       </Wrapper>
       {open && (

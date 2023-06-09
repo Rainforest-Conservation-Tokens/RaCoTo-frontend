@@ -64,15 +64,18 @@ export default {
   register_submit_btn: "Register",
   register_terms:
     " I agree that I am not using my rainforest with any carbon offsetting program.",
-  procedure_title_1: "Register",
+  procedure_title_1: "Registration",
   procedure_desc_1:
-    "Join our platform, register an account, and be part of the global movement preserving rainforests and earning rewards.",
-  procedure_title_2: "Persist",
+    "Rainforest owners register to receive Rainforest Conservation Tokens (RCTs) for preserving biodiversity and reducing carbon emissions.",
+  procedure_title_2: "Proof",
   procedure_desc_2:
-    "Preserve rainforest treasures by maintaining boundaries, playing a crucial role in their integrity and long-term conservation.",
-  procedure_title_3: "Earn",
+    "Owners deposit thier land ownership certificates at an independent custodian, enabling third-party real-time audit via an interface.",
+  procedure_title_3: "Validation",
   procedure_desc_3:
-    "Contribute to rainforest protection, combat climate change, and earn rewards by actively participating in conservation efforts.",
+    "RCT validation ensures each token represents one ton of carbon dioxide, considering satellite images and custodian-provided proof of ownership.",
+  procedure_title_4: "Payout",
+  procedure_desc_4:
+    "Token payout is triggered by successful RCT validation of ownership and rainforest cover, enabling owners to sell on the carbon market.",
   navbar_login: "Login",
   navbar_register: "Register",
   login_modal_title: "Connect Wallet",
@@ -95,8 +98,7 @@ export default {
   nav_faq: "FAQ",
   user_earnings: "Your Earnings",
   user_withdraw: "Withdraw",
-  user_nav_project:"My Project",
-  user_nav_earnings:"My Earnings",
-  user_nav_support:"Support"
-
+  user_nav_project: "My Project",
+  user_nav_earnings: "My Earnings",
+  user_nav_support: "Support",
 };

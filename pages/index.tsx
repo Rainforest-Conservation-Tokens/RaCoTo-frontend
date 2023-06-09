@@ -147,6 +147,8 @@ export default function Home() {
         procedure_desc_2={t.procedure_desc_2}
         procedure_title_3={t.procedure_title_3}
         procedure_desc_3={t.procedure_desc_3}
+        procedure_title_4={t.procedure_title_4}
+        procedure_desc_4={t.procedure_desc_4}
       />
       <Projects
         title={t.home_project_title}

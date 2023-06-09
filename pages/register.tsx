@@ -358,8 +358,8 @@ const Register = () => {
                   )}
                   {ownershipCertificateFile && (
                     <>
-                      <div>
-                        <BsFileEarmarkPdf className="h-10 w-10 my-auto mr-1 mx-auto" />
+                      <div className="flex flex-col justify-center items-center">
+                        <BsFileEarmarkPdf className="h-10 w-10" />
                         <h2>{ownershipCertificateFile.name}</h2>
                         <button
                           type="button"
@@ -414,8 +414,8 @@ const Register = () => {
                   )}
                   {boundaryCertificateFile && (
                     <>
-                      <div>
-                        <BsFileEarmarkPdf className="h-10 w-10 my-auto mr-1 mx-auto" />
+                      <div className="flex flex-col justify-center items-center">
+                        <BsFileEarmarkPdf className="h-10 w-10" />
                         <h2>{boundaryCertificateFile.name}</h2>
                         <button
                           type="button"

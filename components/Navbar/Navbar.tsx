@@ -93,7 +93,7 @@ const Navbar = ({ className }: NavbarProps) => {
             scroll
             className="hover:scale-105 transition duration-300"
           >
-            {t.nav_faqs}
+            {t.nav_faq}
           </Link>
         </div>
         <section className="flex">

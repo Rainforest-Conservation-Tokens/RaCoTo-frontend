@@ -131,7 +131,7 @@ const AdminIndex = () => {
       toast.error("Please connect your wallet");
       return;
     }
-    if (content.wallet_address === "" || content.geoJson === "") {
+    if (content.wallet_address === "") {
       toast.error("Please fill all the fields");
       return;
     }

@@ -82,7 +82,7 @@ export default function Home() {
         <section className=" h-full w-screen absolute top-0 bg-black/[0.6] -z-10" />
         <video
           src={
-            "https://bafybeicww3juliwxgqcs5xfkbfdztewbj6jbdkpdixi6pvl4ej7qtlq4oi.ipfs.w3s.link/pexels-mikhail-nilov-8334944-2732x1440-24fps.mp4"
+            "https://drive.google.com/file/d/1k0uMTIQPqppKgrbaegFeHOo98kyJtktG/view?usp=sharing"
           }
           autoPlay
           loop
@@ -92,7 +92,7 @@ export default function Home() {
         <h2
           className="text-5xl md:text-7xl text-white font-recoleta_bold z-10
       
-          text-center"
+          text-center px-2"
         >
           {t.hero_title}
         </h2>

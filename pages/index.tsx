@@ -81,9 +81,7 @@ export default function Home() {
       >
         <section className=" h-full w-screen absolute top-0 bg-black/[0.6] -z-10" />
         <video
-          src={
-            "https://drive.google.com/file/d/1k0uMTIQPqppKgrbaegFeHOo98kyJtktG/view"
-          }
+          src="/hero-vid1.mp4"
           autoPlay
           loop
           muted
